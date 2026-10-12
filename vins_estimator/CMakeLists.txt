@@ -43,6 +43,7 @@ add_library(vins_lib
     src/factor/projectionOneFrameTwoCamFactor.cpp
     src/factor/marginalization_factor.cpp
     src/utility/utility.cpp
+    src/utility/aruco_utility.cpp
     src/utility/visualization.cpp
     src/utility/CameraPoseVisualization.cpp
     src/initial/solve_5pts.cpp
@@ -61,4 +62,7 @@ target_link_libraries(kitti_odom_test vins_lib)
 
 add_executable(kitti_gps_test src/KITTIGPSTest.cpp)
 target_link_libraries(kitti_gps_test vins_lib) 
+
+add_executable(aruro_test src/arucoTest.cpp)
+target_link_libraries(aruro_test vins_lib) 
 
