@@ -5,7 +5,8 @@
 #include <opencv2/imgproc.hpp>
 #include <opencv2/highgui.hpp>
 #include <opencv2/imgcodecs.hpp>
-#include "utility/aruco_utility.h"
+#include "../src/utility/aruco_utility.h"
+
 
 int main() {
     // 4.2 里字典创建方式
