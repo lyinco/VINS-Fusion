@@ -44,13 +44,15 @@ add_library(vins_lib
     src/factor/marginalization_factor.cpp
     src/utility/utility.cpp
     src/utility/aruco_utility.cpp
+    src/utility/pose_estimation.cpp
     src/utility/visualization.cpp
     src/utility/CameraPoseVisualization.cpp
     src/initial/solve_5pts.cpp
     src/initial/initial_aligment.cpp
     src/initial/initial_sfm.cpp
     src/initial/initial_ex_rotation.cpp
-    src/featureTracker/feature_tracker.cpp)
+    src/featureTracker/feature_tracker.cpp
+    src/featureTracker/aruco_tracker.cpp)
 target_link_libraries(vins_lib ${catkin_LIBRARIES} ${OpenCV_LIBS} ${CERES_LIBRARIES})
 
 
@@ -63,6 +65,12 @@ target_link_libraries(kitti_odom_test vins_lib)
 add_executable(kitti_gps_test src/KITTIGPSTest.cpp)
 target_link_libraries(kitti_gps_test vins_lib) 
 
-add_executable(aruro_test src/arucoTest.cpp)
+add_executable(aruro_test unit_tests/arucoTest.cpp)
 target_link_libraries(aruro_test vins_lib) 
+
+add_executable(pose_test unit_tests/pose_test.cpp)
+target_link_libraries(pose_test vins_lib) 
+
+add_executable(aruco_node_test src/arucoNodeTest.cpp)
+target_link_libraries(aruco_node_test vins_lib ${catkin_LIBRARIES} ${OpenCV_LIBS})
 
